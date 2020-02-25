@@ -1,4 +1,4 @@
-package inflearn.chapter1.algorithm;
+package inflearn.chapter1.sort;
 
 import java.util.Arrays;
 import java.util.Scanner;
