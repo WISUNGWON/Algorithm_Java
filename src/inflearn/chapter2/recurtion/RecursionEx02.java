@@ -12,6 +12,8 @@ public class RecursionEx02 {
 		else {
 		  System.out.println("Hello...");
 		  func(k-1); // recursive case
+		  
+		  //func(K+1); causing infinite loof. 
 		}
 	}
 	
