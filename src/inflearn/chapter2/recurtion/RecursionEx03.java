@@ -1,6 +1,6 @@
 package inflearn.chapter2.recurtion;
 
-public class RecursionEx3 {
+public class RecursionEx03 {
 	public static void main(String[] args) {
       int result = func(4);
       System.out.println(result);
