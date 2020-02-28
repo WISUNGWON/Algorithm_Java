@@ -19,7 +19,7 @@ public class RecursionEx05 {
     if (str.length() == 0)
       return;
     else {
-      System.out.print(str.charAt(0)); .
+      System.out.print(str.charAt(0)); 
       printChars(str.substring(1));
     }
   }

@@ -1,5 +1,6 @@
 package programmers.codingtest.level1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MockTest {
@@ -50,9 +51,12 @@ public class MockTest {
         // 출력값은 win List에 추가된 학생 수와 동일하도록 길이 조정
         answer = new int[win.size()];
         
-        // 출력할 배열 answer에 List에 있는 학생번호 입력
+        // 출력할 배열 answer에 win List에 있는 학생번호 입력
         for (int i = 0; i < win.size(); i++) {
-            
+            // index는 0부터 시작하고 학생번호는 1부터 시작하므로 1씩 더해줌.
+            answer[i] = win.get(i) + 1;
         }
+        
+        return answer;
     }
 }
