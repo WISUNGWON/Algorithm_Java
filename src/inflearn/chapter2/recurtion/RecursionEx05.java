@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class RecursionEx05 {
   public static void main(String[] args) {
+      
+     
+      int[] arr = {1, 2, 3, 4, 5};
+
+
 
   }
  
@@ -34,7 +39,7 @@ public class RecursionEx05 {
     }
   }
 
-  public void printInBinary(int n) {
+  public static void printInBinary(int n) {
     if (n < 2)
       System.out.print(n);
     else {
@@ -52,7 +57,7 @@ public class RecursionEx05 {
   }
   
 
-  public void readFrom(int n, int[] data, Scanner in) {  
+  public static void readFrom(int n, int[] data, Scanner in) {  
     if (n == 0)
       return;
     else {

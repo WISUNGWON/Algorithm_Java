@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class RecursionEx06 {
     public static void main(String[] args) {
+        
+    
 
     }
  
@@ -65,7 +67,7 @@ public class RecursionEx06 {
     }
     
     // 최대값 찾기
-    int findMax(int[] data, int begin, int end) {
+   static int findMax(int[] data, int begin, int end) {
         if (begin == end) {
             return data[begin];
         }

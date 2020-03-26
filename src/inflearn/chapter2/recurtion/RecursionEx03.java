@@ -7,10 +7,13 @@ public class RecursionEx03 {
 	}	
 	// n(n+1)/2 = add from 0 to n
 	public static int func(int n) {
-	  if (n==0)
-	    return 0;
-	  else
-		return n + func(n - 1);
+	  if (n == 0) {
+	      return 0;  
+	  }
+	  else {
+	      return n + func(n - 1);  
+	  }
+		
 	}
 }
   

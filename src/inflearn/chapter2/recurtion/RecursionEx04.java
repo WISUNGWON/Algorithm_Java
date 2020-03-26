@@ -3,15 +3,19 @@ package inflearn.chapter2.recurtion;
 
 public class RecursionEx04 {
 	public static void main(String[] args) {
+	    System.out.println(fibonacci(6));
       
 	}
 	// Factorial : n!
-	public static int factorial (int n) {
-		
-	  if (n == 0)
-	    return 1;
-	  else
-	    return n * factorial(n - 1);
+	public static int factorial(int n) {
+	    
+	    if (n == 0) {
+	        return 1;
+	    }
+	    else {
+	        return n * factorial(n -1);
+	    }
+	    
 	}
 	// x^n = x*x^(n-1) (if n > 0)
 	public static double power(double x, int n) {
@@ -19,7 +23,7 @@ public class RecursionEx04 {
 	  if (n == 0)
 	    return 1;
 	  else
-	    return x*power(x, n-1);
+	    return x * power(x, n-1);
 	}
 	
 	// finonacci

@@ -5,7 +5,10 @@ import java.util.Collections;
 
 public class IntDescent {
     public static void main(String[] args) {
-        long n = 4215;
+        
+    }    
+    
+    public static long solution(long n) {
         long answer;
         String s;
         String s2 = "";
@@ -31,10 +34,19 @@ public class IntDescent {
       
    
         // String to long
-        answer = Long.parseLong(s2);
-      
+        return answer = Long.parseLong(s2);
         
-       
+ 
+    }
+    
+    public static long solution2(long n) {
+        String answer ="";
+        char[] temp = (n + "").toCharArray();
+        Arrays.sort(temp);
+        for (int i = temp.length - 1; i >= 0; i--) {
+            answer += temp[i] + "";
+        }
+        return Long.parseLong(answer);
     }
    
 }
