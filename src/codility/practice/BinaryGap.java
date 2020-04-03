@@ -56,8 +56,7 @@ public class BinaryGap {
                     }
                 }
                     
-               
-            // 3) 寃곌낵 諛섑솚
+              
             return result;
       }
     }
