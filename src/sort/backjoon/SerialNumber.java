@@ -12,7 +12,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class WordsSorting {
+public class SerialNumber {
+    
+   static int getSum (String a) {
+        int length = a.length(), sum = 0;
+        for (int i = 0; i < length; i++)  {
+            if (a.charAt(i) <= '9' && a.charAt(i) >= '0') {
+                sum += a.charAt(i) - '0';
+            }  
+               
+        }
+        return sum;
+    };
 
     public static void main(String[] args) throws IOException {
        
@@ -27,13 +38,21 @@ public class WordsSorting {
         
         List<String> list = new ArrayList(set);
         
+
+        
         Comparator<String> myComparator = new Comparator<String>() {
             public int compare (String x, String y) {
                 if (x.length() > y.length()) {
                     return 1;
                 }
                 else if (x.length() == y.length()) {
-                    return x.compareTo(y);
+
+                    if(getSum(x) != getSum(y)) {
+                        return Integer.compare(getSum(x), getSum(y)); //Integer는 10자리까지만 된다?
+                    }
+                    else {
+                        return x.compareTo(y);   
+                    }
                 }
                 else {
                     return -1;
