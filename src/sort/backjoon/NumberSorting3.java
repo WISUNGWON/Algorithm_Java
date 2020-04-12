@@ -9,7 +9,7 @@ import java.io.OutputStreamWriter;
 public class NumberSorting3 {
     
     static int n;
-    static int[] a = new int[10001];
+    static int[] a = new int[10000];
 
     public static void main(String[] args) throws NumberFormatException, IOException {
         
@@ -19,12 +19,12 @@ public class NumberSorting3 {
         n = Integer.parseInt(br.readLine());
         for (int i = 0; i < n; i++) {
             int x = Integer.parseInt(br.readLine());
-            a[x]++;
+            a[x - 1]++;
         }
         
-        for (int i =0; i < 10001; i++) {
+        for (int i = 0; i < 10000; i++) {
             while(a[i] != 0) {
-                bw.write(i + "\n");
+                bw.write(i + 1 + "\n");
                 a[i]--;
             }
         }
