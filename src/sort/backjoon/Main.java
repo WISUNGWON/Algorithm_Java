@@ -1,26 +1,30 @@
 package sort.backjoon;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         
-         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-         
-         String str = "";
-         for (int i = 1; (str = br.readLine()) != null; i++) {
-             System.out.println(str);
-             System.out.println(i);
-         }
-            
-     }  
-    }
+        Scanner sc = new Scanner(System.in);
+
+        String name;
+        int age;
+       
+        System.out.println("Enter your age");
+        age = sc.nextInt();
+        System.out.println("Enter your name");
+        name = sc.nextLine();
+        
+        System.out.printf("나이는 %d 입니다. %n", age);
+        System.out.printf("이름은 %s 입니다. %n", name);
+        System.out.println(name);
+        
+        sc.close();
+        
+        
+        
+        
+   
+     } 
+}
 
