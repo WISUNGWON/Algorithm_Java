@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
+import java.util.Iterator;
 
 // 2217 로프
 public class Rope {
@@ -44,3 +45,4 @@ public class Rope {
         bw.close();
     }
 }
+
