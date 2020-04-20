@@ -3,48 +3,50 @@ package greedy.backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class MeetingRoom {
 
     public static void main(String[] args) throws IOException {
        
-        Map<Long, Long> timeMap = new HashMap<Long, Long>();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+        String[] tArr;
+        int[][] arr = new int[N][2];
         
-        long last;
-        long result = 0;
-        long n = Long.parseLong(br.readLine());
-        
-        for (int i = 0; i < n; i++) {
-            String[] time = br.readLine().split(" ");
-            timeMap.put(Long.parseLong(time[1]), Long.parseLong(time[0]));
+        for (int i = 0; i < arr.length; i++) {
+            tArr = br.readLine().split(" ");
+            arr[i][0] = Integer.parseInt(tArr[0]);
+            arr[i][1] = Integer.parseInt(tArr[1]);
         }
         
-        TreeMap<Long, Long> timeTree = new TreeMap<>(timeMap);
-        long firstKey = timeTree.firstKey();
-        last = firstKey;
-        for (Long key : timeTree.keySet()) { 
-            if (n == 1) {
-                result++;
-                break;  
-            }
-            
-            if (last > timeTree.get(key) && last == key) {
-                result++;
-            }
-            
-            if (last <= timeTree.get(key)) {
-                last = key;
-                result++;
-            }
-        }
-        
-        System.out.println(result);
-        
+        Arrays.sort(arr, new Comparator<int[]>( ) {
 
+            @Override
+            public int compare(int[] arr1, int[] arr2) {
+                if (arr1[1] == arr2[1]) {
+                    return Integer.compare(arr1[0], arr2[0]);
+                }
+                return Integer.compare(arr1[1], arr2[1]);
+            }
+            
+        });
+        
+        int maxMeeting = 0;
+        int checkTime = 0;
+        for (int i = 0; i < N; i++) {
+            if (arr[i][0] >= checkTime) {
+                checkTime = arr[i][1];
+                maxMeeting += 1;
+            }
+        }
+        
+        System.out.println(maxMeeting);
+        br.close();
+        
+        
+        
     }
 
 }
