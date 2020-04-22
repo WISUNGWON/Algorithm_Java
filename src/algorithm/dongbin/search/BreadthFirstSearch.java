@@ -7,7 +7,7 @@ public class BreadthFirstSearch {
     public static void main(String[] args) {
         
         int number = 7;
-        int[] c = new int[7]; //checked, 방문처리를 표시하기 위한 array
+        int[] c = new int[7]; 
         
     }
 

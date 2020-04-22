@@ -1,4 +1,4 @@
-package greedy.backjoon;
+package greedy2.backjoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,8 +8,8 @@ import java.util.Comparator;
 
 public class MeetingRoom {
 
-    public static void main(String[] args) throws IOException {
-       
+    public static void main(String[] args) throws IOException  {
+        
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         String[] tArr;
@@ -21,16 +21,14 @@ public class MeetingRoom {
             arr[i][1] = Integer.parseInt(tArr[1]);
         }
         
-        Arrays.sort(arr, new Comparator<int[]>( ) {
-
-            @Override
+        Arrays.sort(arr, new Comparator<int[]>() {
+            
             public int compare(int[] arr1, int[] arr2) {
                 if (arr1[1] == arr2[1]) {
                     return Integer.compare(arr1[0], arr2[0]);
                 }
                 return Integer.compare(arr1[1], arr2[1]);
             }
-            
         });
         
         int maxMeeting = 0;
@@ -44,9 +42,7 @@ public class MeetingRoom {
         
         System.out.println(maxMeeting);
         br.close();
-        
-        
-        
+
     }
 
 }
