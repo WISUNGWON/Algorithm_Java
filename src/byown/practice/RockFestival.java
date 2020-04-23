@@ -25,20 +25,24 @@ public class RockFestival {
                 arr[j] = sc.nextInt();
                 summation[j + 1] = summation[j] + arr[j];
             }
-        }
         
-        min = 999999999;
-        int start, end;
-        for (start = 0; start <= total_num - least_len; start++) {
-            for (end = start + least_len; end <= total_num; end++) {
-                current = (double)(summation[end] - summation[start]) / (end-start);
-                if (min > current) {
-                    min = current;
+        
+            min = 999999999;
+            int start, end;
+            for (start = 0; start <= total_num - least_len; start++) {
+                for (end = start + least_len; end <= total_num; end++) {
+                    current = (double)(summation[end] - summation[start]) / (end-start);
+                    System.out.println(current);
+                    if (min > current) {
+                        min = current;
+                        System.out.println("min is : " + min);
+                    }
                 }
             }
+            System.out.printf("%.10f\n", min);
         }
         
-        System.out.printf("%.10f\n", min);
+        
         
         sc.close();
 

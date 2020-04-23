@@ -14,7 +14,7 @@ public class Tailing5 {
         int n = sc.nextInt();
         dp[0] = 1; dp[1] = 2; dp[2] = 7;
         for (int i = 3; i <= n; i++) {
-            sum[i] = (sum[i - 1] + dp[i - 3]) % MOD;
+            sum[i] = (sum[i - 1] + dp[i - 3]) % MOD; //점화식 그대로 옮김 Si + ai
             dp[i] = (2 * dp[i - 1] + 3 * dp[i - 2] + 2 * sum[i]) % MOD;
         }
         
