@@ -5,21 +5,29 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         
-        Scanner sc = new Scanner(System.in);
+        String s1 = new String("hello");
 
-        String name;
-        int age;
-       
-        System.out.println("Enter your age");
-        age = sc.nextInt();
-        System.out.println("Enter your name");
-        name = sc.nextLine();
+        String s2 = new String("hello");
         
-        System.out.printf("ë‚˜ì´ëŠ” %d ì…ë‹ˆë‹¤. %n", age);
-        System.out.printf("ì´ë¦„ì€ %s ì…ë‹ˆë‹¤. %n", name);
-        System.out.println(name);
+        String s3 = "hello";
         
-        sc.close();
+        String s4 = "hello";
+        
+        String s5 = s1;
+        
+        //»ó¼ö Ç®ÀÇ Á¸Àç
+        
+        if(s1 == s2) System.out.println("s1°ú s2 ÁÖ¼Ò°ªÀÌ °°À½");
+        
+        if(s2 == s3) System.out.println("s2°ú s3 ÁÖ¼Ò°ªÀÌ °°À½");
+        
+        if(s3 == s4) System.out.println("s3°ú s4 ÁÖ¼Ò°ªÀÌ °°À½");
+        
+        if(s3 == s4) System.out.println("s5°ú s1 ÁÖ¼Ò°ªÀÌ °°À½");
+        
+        if(s1.equals(s2)) System.out.println("s1°ú s2 °´Ã¼ ³»¿ëÀÌ °°À½");
+        
+        if(s1.equals(s3)) System.out.println("s1°ú s3 °´Ã¼ ³»¿ëÀÌ °°À½");
         
         
         
