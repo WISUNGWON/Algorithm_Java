@@ -1,4 +1,4 @@
-package greedy2.backjoon;
+package dp2.backjoon;
 
 import java.util.Scanner;
 

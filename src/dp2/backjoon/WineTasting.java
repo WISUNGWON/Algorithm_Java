@@ -1,11 +1,11 @@
-package greedy2.backjoon;
+package dp2.backjoon;
 
+// 2156 포도주 시식
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 
 public class WineTasting {
     
@@ -21,16 +21,18 @@ public class WineTasting {
             int c = Integer.parseInt(br.readLine());
             wine[i] = c;
         }
-        System.out.println(Arrays.toString(wine));
         
         dp[1] = wine[1];
         dp[2] = wine[1] + wine[2];
         
+        
+        int max = 0;
         for (int i = 3; i <= n; i++) {
-            dp[i] = Math.max(dp[i - 1], dp[i - 2]) + wine[i];
+            dp[i] = Math.max((dp[i - 3] + wine[i - 1] + wine[i]), (dp[i - 2] + wine[i]));
+            dp[i] = Math.max(dp[i], dp[i - 1]);
         }
-        System.out.println(Arrays.toString(dp));
-        System.out.println(dp[n]);
+        max = Math.max(dp[n], dp[n - 1]);
+        System.out.println(max);
 
     }
 
