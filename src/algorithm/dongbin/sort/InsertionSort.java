@@ -16,7 +16,7 @@ public class InsertionSort {
                 temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
-                System.out.println("실행 : " + j);
+                System.out.println(j);
                 j--;
             }
             
