@@ -1,49 +1,57 @@
 package dp2.backjoon;
 
-// 11053 가장 긴 증가하는 부분 수열 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
-    
-    public static void main(String[] args) throws IOException {
-        
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int n = Integer.parseInt(br.readLine());
-        
-        int[] arr = new int[1001];
-        int[] dp = new int[1001];
-        
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        
-        for (int i = 1; i <= n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-            dp[i]++;
-        }
-        
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n; j++) {
-                if (arr[i] < arr[j] && dp[i] >= dp[j]) {
-                    dp[j]++;
-                }
-            }
-        }
-        
-        int max = 0;
-        for (int i = 1; i <= n; i++) {
-            if (dp[i] > max) {
-                max = dp[i];
-            }
-        }
-       
-        System.out.println(max);
-        
-        
-    }
+	static int n;
+	
+	static int dp[], cost[][];
+	
+	
+	public static void main(String[] args)   {
+		Scanner sc = new Scanner(System.in);
+		
+		n=sc.nextInt();
+		dp = new int[n+1];
+		cost = new int[n+1][2]; // A, B 전봇대 배열
+		
+		
+		for(int i=1;i<=n;i++) {
+			for(int j=0;j<2;j++) {
+				cost[i][j] = sc.nextInt();
+			}
+		}
+		
+		Arrays.sort(cost,new Comparator<int[]>() { //A를 기준으로 오름차순 정렬
 
+			@Override
+			public int compare(int[] a, int[] b) {
+				if(a[0]<b[0]) return -1;
+				else if(a[0]>b[0]) return 1;
+				return 0;
+			}
+			
+		});
+		
+		dp[1] = 1;
+		
+		for(int i=2;i<=n;i++) { // LIS를 구하는 과정
+			dp[i] =1;
+			for(int j=1;j<i;j++) {
+				if(cost[i][1]>cost[j][1]) {
+					dp[i] = Math.max(dp[i], dp[j]+1);
+				}
+			}
+		}
+		int max =Integer.MIN_VALUE; // 최댓값이 설치할 수 있는 전긴줄의 최대 개수
+		for(int j=1;j<=n;j++) {
+			if(dp[j]>max)
+				max = dp[j];
+		}
+		
+		System.out.println(n-max); // 최대 개수만큼 설치하면 동시에 최소 개수를 자르는 것이므로 N-MAX를 수행
+		
+		
+	}
+	
 }
