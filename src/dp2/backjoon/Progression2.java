@@ -2,7 +2,7 @@ package dp2.backjoon;
 
 import java.util.Scanner;
 
-// 11053 가장 긴 증가하는 부분 수열
+// 11054 가장 긴 바이토닉 부분 수열
 public class Progression2 {
 
     public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Progression2 {
         int n = sc.nextInt();
         int max = 0;
         
-        int[][] dp = new int[1001][3];
+        int[][] dp = new int[n + 1][3];
         
         for (int i = 1; i <= n; i++) {
             dp[i][0] = sc.nextInt();
@@ -29,6 +29,14 @@ public class Progression2 {
             max = Math.max(max, Math.max(dp[i][1], dp[i][2]));
         }
         
+        //for test
+        for (int j = 0; j < 3; j++) {
+            for (int i = 1; i <= n; i++) {
+                System.out.print(dp[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
         System.out.println(max);
     }
 

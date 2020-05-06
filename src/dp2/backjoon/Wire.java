@@ -32,8 +32,6 @@ public class Wire {
                 }
                 return 0;
             }
-            
-            
         });
 
         dp[1] = 1;
