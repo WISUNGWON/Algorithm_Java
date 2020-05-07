@@ -21,7 +21,7 @@ public class NomalBag {
         }
 
         //물건을 기준으로 배열 
-        Arrays.sort(arr, new Comparator<int[]>() {
+        Arrays.sort(arr, new Comparator<int[]>() { //Arrays 한것 부터 시간 복잡도에서 탈락!
 
             @Override
             public int compare(int[] a, int[] b) {

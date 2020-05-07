@@ -1,5 +1,6 @@
 package twopointers.backjoon;
 
+// 2470 µÎ ¿ë¾×
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
