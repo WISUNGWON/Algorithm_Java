@@ -1,68 +1,34 @@
 package dp2.backjoon;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
-//12865 평범한 배낭
 public class NomalBag {
-
+    static int n, k;
+    static int dp[][], w[], v[];
+    
     public static void main(String[] args) {
-        
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(), k = sc.nextInt();
-        int[][] arr = new int[n][2]; // 물건, 가치를 저정하는 배열
+        n = sc.nextInt();
+        k = sc.nextInt();
         
-        // 물건과 가치 배열에 담기
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < 2; j++) {
-                arr[i][j] = sc.nextInt();
-            }
-        }
-
-        //물건을 기준으로 배열 
-        Arrays.sort(arr, new Comparator<int[]>() { //Arrays 한것 부터 시간 복잡도에서 탈락!
-
-            @Override
-            public int compare(int[] a, int[] b) {
-                if (a[0] < b[0]) {
-                    return -1;
-                }
-                else if (a[0] > b[0]) {
-                    return 1;
-                }
-                return 0;
-            }
-        });
+        dp = new int[n + 1][k + 1];
+        w = new int[n + 1];
+        v = new int[n + 1];
         
-        int vMax = 0;
-
-        if (n == 1) {
-            vMax = arr[0][1];
-            if (k < arr[0][0]) {
-                vMax = 0;
-            }
-        }
-       
-        for (int i = 0; i < n; i++) {
-            int w = arr[i][0];
-            int v = arr[i][1];
-            for (int j = i; j < n; j++) {
-                if (k >= w) {
-                   v += arr[j][0];
-                }
-                k -= w;
-            }
-            
-            if (v > vMax) {
-                vMax = v;
-            }
+        for (int i = 1; i <= n; i++) {
+            w[i] = sc.nextInt();
+            v[i] = sc.nextInt();
         }
         
+        for (int i = 1; i <= n; i++) { //i는 item
+            for (int j = 1; j <= k; j++) { // j는 물건의 무게
+                dp[i][j] = dp[i - 1][j];
+                if (j - w[i] >= 0) { // >= (=를 꼭 해야함)
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - w[i]] + v[i]);
+                }
+            } 
+        }
         
-        System.out.println(vMax);
-        sc.close();
-
+        System.out.println(dp[n][k]);
     }
-
 }
