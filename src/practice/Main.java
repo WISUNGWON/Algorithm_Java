@@ -7,17 +7,25 @@ public class Main {
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
-        int A = sc.nextInt(), B = sc.nextInt(), C = sc.nextInt();
-        int margin = C - B;
+        int t = sc.nextInt();
+
         
-        if (margin > 0) {
-            System.out.println((A / margin) + 1);
-        } else {
-            System.out.println(-1);
+        while (t != 0) {
+            int r = sc.nextInt();
+            String s = sc.next();
+            for (int i = 0; i < s.length(); i++) {
+                for (int j = 0; j < r; j++) {
+                    System.out.print(s.substring(i, i + 1));
+                }
+            }
+            System.out.println();
+            t--;
         }
         
-        
+       
         sc.close();
+        
+
     }
 
 }
