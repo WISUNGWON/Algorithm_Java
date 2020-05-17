@@ -21,7 +21,7 @@ public class Main {
     System.out.println(n);
     System.out.println(m);
     for(int i=1;i<=n;i++) { 
-        
+        // algo!
         deque.add(i); 
         
     } 
