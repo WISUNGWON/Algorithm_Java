@@ -3,37 +3,36 @@ package practice;
 import java.util.Scanner;
 
 public class Main {
+    
+    static int n, k;
+    static int dp[][], w[], v[];
 
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        k = sc.nextInt();
         
-        int[][] house = new int[1001][3];
-        int[][] dp = new int[1001][3];
-        int result  = 0;
-        int n = sc.nextInt();
+        dp = new int[n + 1][k + 1];
+        w = new int[n + 1]; //물건
+        v = new int[n + 1]; // 가치
         
         for (int i = 1; i <= n; i++) {
-            house[i][0] = sc.nextInt();
-            house[i][1] = sc.nextInt();
-            house[i][2] = sc.nextInt();
+            w[i] = sc.nextInt();
+            v[i] = sc.nextInt();
         }
         
-        dp[1][0] = house[1][0];
-        dp[1][1] = house[1][1];
-        dp[1][2] = house[1][2];
-        
-        for (int i = 2; i <= n; i++) {
-            dp[i][0] = Math.min(dp[i - 1][1], dp[i - 1][2]) + house[i][0];
-            dp[i][0] = Math.min(dp[i - 1][0], dp[i - 1][2]) + house[i][1];
-            dp[i][0] = Math.min(dp[i - 1][1], dp[i - 1][0]) + house[i][2];
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= k; j++) {
+                dp[i][j] = dp[i - 1][j];
+                if (j - w[i] >= 0) {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - w[i]] + v[i]);
+                }
+            }
         }
         
-        result = Math.min(dp[n][2], Math.min(dp[n][0], dp[n][1]));
+        System.out.println(dp[n][k]);
         
-        System.out.println(result);
-        
-        sc.close();
     }
 
 }
