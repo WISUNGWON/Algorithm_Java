@@ -1,37 +1,44 @@
 package practice;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     
-    static int n, k;
-    static int dp[][], w[], v[];
-
-    public static void main(String[] args) {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    
+    
+    int n;
+    int rope;
+    
+    n = Integer.parseInt(br.readLine());
+    int[] a = new int[n];
+    
+    for (int i = 0; i < n; i++) {
+        rope = Integer.parseInt(br.readLine());
+        a[i] = rope;
         
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        k = sc.nextInt();
-        
-        dp = new int[n + 1][k + 1];
-        w = new int[n + 1]; //물건
-        v = new int[n + 1]; // 가치
-        
-        for (int i = 1; i <= n; i++) {
-            w[i] = sc.nextInt();
-            v[i] = sc.nextInt();
+    }
+    
+    Arrays.sort(a);
+    
+    int max = 0;
+    for (int i = 0; i < n; i++) {
+        if (max < a[i] * (n - i)) {
+            max = a[i] * (n - i);
         }
-        
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= k; j++) {
-                dp[i][j] = dp[i - 1][j];
-                if (j - w[i] >= 0) {
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - w[i]] + v[i]);
-                }
-            }
-        }
-        
-        System.out.println(dp[n][k]);
+    }
+    
+    bw.write(max + "");
+    
+    br.close();
+    bw.flush();
+    bw.close();
         
     }
 
