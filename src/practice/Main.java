@@ -1,44 +1,32 @@
 package practice;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    
-    
-    int n;
-    int rope;
-    
-    n = Integer.parseInt(br.readLine());
-    int[] a = new int[n];
-    
-    for (int i = 0; i < n; i++) {
-        rope = Integer.parseInt(br.readLine());
-        a[i] = rope;
-        
-    }
-    
-    Arrays.sort(a);
-    
-    int max = 0;
-    for (int i = 0; i < n; i++) {
-        if (max < a[i] * (n - i)) {
-            max = a[i] * (n - i);
-        }
-    }
-    
-    bw.write(max + "");
-    
-    br.close();
-    bw.flush();
-    bw.close();
+        public static void main(String[] args) {    
+                
+            Scanner sc = new Scanner(System.in);
+            int jump = 0, noJump = 0;
+            int n = sc.nextInt();
+            int[] stairs = new int[301];
+            int[] dp = new int[301];
+            
+            for (int i = 1; i <= n; i++) {
+                stairs[i] = sc.nextInt();
+                
+            }
+            
+            dp[1] = stairs[1];
+            dp[2] = stairs[1] + stairs[2];
+            
+            for (int i = 3; i <= n; i++) {
+                noJump = stairs[i] + stairs[i - 1] + dp[i - 3];
+                jump = stairs[i] + dp[i - 2];
+                
+                dp[i] = Math.max(noJump, jump);
+            }
+            
+            System.out.println(dp[n]);
         
     }
 
