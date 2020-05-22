@@ -3,31 +3,26 @@ package practice;
 import java.util.Scanner;
 
 public class Main {
-        public static void main(String[] args) {    
-                
+    
+        public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
-            int jump = 0, noJump = 0;
-            int n = sc.nextInt();
-            int[] stairs = new int[301];
-            int[] dp = new int[301];
+            String a = sc.nextLine(), b = sc.nextLine();
+            int[][] dp = new int[b.length() + 1][a.length() + 1];
             
-            for (int i = 1; i <= n; i++) {
-                stairs[i] = sc.nextInt();
-                
+            for (int i = 1; i <= b.length(); i++) {
+                for (int j = 1; j <= a.length(); j++) {
+                    if (b.charAt(i - 1) != a.charAt(j - 1)) {
+                        dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
+                    } else {
+                        dp[i][j] = dp[i - 1][j - 1] + 1;
+                    }
+                }
             }
             
-            dp[1] = stairs[1];
-            dp[2] = stairs[1] + stairs[2];
-            
-            for (int i = 3; i <= n; i++) {
-                noJump = stairs[i] + stairs[i - 1] + dp[i - 3];
-                jump = stairs[i] + dp[i - 2];
-                
-                dp[i] = Math.max(noJump, jump);
-            }
-            
-            System.out.println(dp[n]);
-        
+            System.out.println(dp[b.length()][a.length()]);
+                    
+        }
+    
     }
 
-}
+
