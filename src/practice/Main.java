@@ -1,35 +1,56 @@
 package practice;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Main {
     
-        public static void main(String[] args) {
+        public static void main(String[] args) throws IOException {
            
-            Scanner sc = new Scanner(System.in);
-            int n = sc.nextInt();
-            int k = sc.nextInt();
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int n = Integer.parseInt(br.readLine());
+            int[] arr = new int[n];
+            int[] dp = new int[n - 1];
             
-            int[][] dp = new int[n + 1][k + 1];
-            int w[] = new int[n + 1];
-            int v[] = new int[n + 1];
+            StringTokenizer st = new StringTokenizer(br.readLine());
             
-            for (int i = 1; i <= n; i++) {
-                w[i] = sc.nextInt();
-                v[i] = sc.nextInt();
+            for (int i = 0; i < n; i++) {
+                arr[i] = Integer.parseInt(st.nextToken());
             }
             
-            for (int i = 1; i <= n; i++) {
-                for (int j = 1; j <= k; j++) {
-                    dp[i][j] = dp[i - 1][j];
-                    if (j - w[i] >= 0) {
-                        dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - w[i]] + v[i]);
-                    }
+            Arrays.sort(arr);
+            
+            int pL = 0;
+            int pR = n - 1;
+            
+            int result = arr[pL] + arr[pR];
+            int resultPL = arr[pL];
+            int resultPR = arr[pR];
+            
+            for (int i = 0; i < n - 1; i++) {
+                dp[i] = arr[pL] + arr[pR];
+                
+                if (Math.abs(dp[i]) < Math.abs(result)) {
+                    result = dp[i];
+                    resultPL = arr[pL];
+                    resultPR = arr[pR];
+                }
+                
+                if (dp[i] > 0) {
+                    pR--;
+                } else if (dp[i] < 0) {
+                    pL++;
+                } else {
+                    break;
                 }
             }
             
-            System.out.println(dp[n][k]);
-                    
+            System.out.println(resultPL + " " + resultPR);
+            
+            
         }
     
     }
