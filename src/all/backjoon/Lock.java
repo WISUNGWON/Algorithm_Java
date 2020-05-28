@@ -24,7 +24,7 @@ public class Lock {
        }
        for (i = 0; i < n; i++) {
            if ((lock.get(i) - lock.get(i + 1) + n) % n == 1) {
-               index[i] = index[i + 1] = 1;
+               index[i] = index[i + 1] = 0;
            }
        }
        for (i = 0; i < n; i++) {

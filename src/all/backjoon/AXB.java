@@ -8,7 +8,7 @@ public class AXB {
         
         Scanner sc = new Scanner(System.in);
         int A = sc.nextInt(), B = sc.nextInt();
-        
+        int b = 1;
         System.out.println(A * B);
 
     }
