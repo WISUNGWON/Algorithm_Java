@@ -2,7 +2,7 @@ package all.backjoon;
 
 import java.util.Scanner;
 
-// 10872 ÆÑÅä¸®¾ó
+// 10872 íŒ©í† ë¦¬ì–¼
 public class Factorial {
 
     public static void main(String[] args) {
