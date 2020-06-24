@@ -94,14 +94,15 @@ public class Prim {
                     pq.add(tempList.get(i));
                 }
             }
-        }
-        while (!pq.isEmpty()) {
-            tempNode = pq.poll();
-            if (!visit[tempNode.e]) {
-                visit[tempNode.e] = true;
-                ans += tempNode.v;
-                dq.add(tempNode.e);
-                break;
+        
+            while (!pq.isEmpty()) {
+                tempNode = pq.poll();
+                if (!visit[tempNode.e]) {
+                    visit[tempNode.e] = true;
+                    ans = ans + tempNode.v;
+                    dq.add(tempNode.e);
+                    break;
+                }
             }
         }
         System.out.println(ans);
