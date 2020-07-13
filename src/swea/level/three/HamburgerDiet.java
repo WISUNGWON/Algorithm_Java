@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+// 5215. 햄버거 다이어트
 public class HamburgerDiet {
 
     public static void main(String[] args) throws IOException {
