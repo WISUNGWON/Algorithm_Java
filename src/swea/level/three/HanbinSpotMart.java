@@ -1,4 +1,4 @@
-package swea.lever.three;
+package swea.level.three;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
