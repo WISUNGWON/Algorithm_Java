@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-import sun.util.locale.StringTokenIterator;
-
 public class Jungol_1146 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -22,8 +20,7 @@ public class Jungol_1146 {
 		}
 		
 		int s = 0;
-		while(s < n) {
-			// 최소값 찾기	
+		while(s < n - 1) {
 			int min = Integer.MAX_VALUE;
 			int idx = 0;
 			for (int i = s; i < n; i++) {
@@ -33,12 +30,10 @@ public class Jungol_1146 {
 				}
 			}
 			
-			// 바꾸기
 			int temp = arr[s];
 			arr[s] = min;
 			arr[idx] = temp;
 			
-			// 출력
 			for (int i = 0; i < n - 1; i++) {
 				sb.append(arr[i]).append(" ");
 			}
